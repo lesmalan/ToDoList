@@ -1,0 +1,66 @@
+:root{
+    --green: #00FF00;
+    --white: #FFFFFF;
+    --black: #000000;
+    --bg: var(--white);
+    --fontColor: var(--black);
+}
+
+body {
+    background: var(--bg);
+    color: var(--fontColor);
+    font-family: helvetica;
+    font-size: 20px;
+}
+
+.outline-box {
+  border: 5px solid #cfcfcf;
+  border-radius: 6px;
+  padding: 5px;
+  max-width: 600px;
+  margin: 12px 0;
+  background: transparent;
+}
+
+li{
+    list-style: square;
+    margin: 8px 0;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.subheading{
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--black);
+}
+
+button {
+  margin-left: 8px;
+  padding: 4px 8px;
+}
+
+.icon-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.icon-btn svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+
+.icon-btn.mark-complete svg { fill: #bfbfbf; }   /* light gray check */
+.icon-btn.mark-incomplete svg { fill: #28a745; } /* green check */
+.icon-btn.delete svg { fill: #e02424; }          /* red X */
+
+.icon-btn:focus {
+  outline: 2px solid rgba(0, 123, 255, 0.4);
+  border-radius: 4px;
+}

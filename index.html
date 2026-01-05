@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-do List</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+    <h1>To-Do List</h1>
+    <p class="subheading">Incomplete Tasks</p>
+        <div class="outline-box">
+            <ul id="incomplete-list"></ul>
+        </div>
+
+    <p class="subheading">Completed Tasks</p>
+        <div class="outline-box">
+            <ul id="completed-list"></ul>
+        </div>
+        
+    <p class="subheading">Add a new task</p>
+        <div class="outline-box">
+            <form id="new-task-form">
+                <input id="new-task-input" type="text" placeholder="What needs to be done?" required />
+                <button id="add-task-btn" type="submit">Add Task</button>
+            </form>
+        </div>
+    <script src="app.js"></script>
+    <noscript>You need to enable JavaScript to view the full site.</noscript>
+</body>
+
+</html>
