@@ -1,6 +1,7 @@
 'use strict';
 
 const STORAGE_KEY = 'todoList.items'; //list storage item
+const THEME_KEY = 'todoList.theme'; //theme preference storage key
 
 function generateId() { //generates unique IDs for each todo item
   return Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
@@ -79,6 +80,26 @@ function render() { //renders the list
 document.addEventListener('DOMContentLoaded', () => { //render the page
   load();
   render();
+
+  // Theme initialization
+  const themeToggleBtn = document.getElementById('theme-toggle-btn');
+  function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    if (themeToggleBtn) {
+      themeToggleBtn.textContent = theme === 'dark' ? 'Light' : 'Dark';
+      themeToggleBtn.setAttribute('aria-pressed', theme === 'dark');
+    }
+  }
+  const savedTheme = localStorage.getItem(THEME_KEY) || 'light';
+  applyTheme(savedTheme);
+  if (themeToggleBtn) {
+    themeToggleBtn.addEventListener('click', () => {
+      const current = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+      const next = current === 'dark' ? 'light' : 'dark';
+      applyTheme(next);
+      localStorage.setItem(THEME_KEY, next);
+    });
+  }
 
   const form = document.getElementById('new-task-form');
   const input = document.getElementById('new-task-input');

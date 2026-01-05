@@ -10,25 +10,36 @@
 </head>
 
 <body>
-    <h1>To-Do List</h1>
-    <p class="subheading">Incomplete Tasks</p>
-        <div class="outline-box">
-            <ul id="incomplete-list"></ul>
+    <header class="page-header">
+        <h1>To-Do List</h1>
+        <button id="theme-toggle-btn" class="theme-toggle-btn" type="button" aria-pressed="false" aria-label="Toggle dark theme">Dark</button>
+    </header>
+    <div class="task-columns">
+        <div class="column">
+            <p class="subheading">Incomplete Tasks</p>
+            <div class="outline-box">
+                <ul id="incomplete-list"></ul>
+            </div>
         </div>
 
-    <p class="subheading">Completed Tasks</p>
-        <div class="outline-box">
-            <ul id="completed-list"></ul>
+        <div class="column">
+            <p class="subheading">Completed Tasks</p>
+            <div class="outline-box">
+                <ul id="completed-list"></ul>
+            </div>
         </div>
-        
-    <p class="subheading">Add a new task</p>
-        <div class="outline-box">
+    </div>
+    
+    <div class="add-section">
+        <p class="subheading">Add a new task</p>
+        <div class="outline-box add-box">
             <form id="new-task-form">
                 <input id="new-task-input" type="text" placeholder="What needs to be done?" required />
                 <button id="add-task-btn" type="submit">Add Task</button>
             </form>
         </div>
-    <script src="app.js"></script>
+    </div>
+    <script src="app.js"></script>"
     <noscript>You need to enable JavaScript to view the full site.</noscript>
 </body>
 
