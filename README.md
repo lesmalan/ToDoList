@@ -41,7 +41,7 @@ Interactive Parts:-
 
     #Cross button to delete incomplete tasks
 
-        Confirmation dialog box
+        #Confirmation dialog box
 
     #Clear check mark button on completed tasks to move back to incomplete
 
@@ -59,4 +59,4 @@ Formatting:-
 
     #Sub-headings larger font than lists
     
-    Color, background, element spacing
+    #Color, background, element spacing
