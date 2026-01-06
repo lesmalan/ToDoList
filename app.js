@@ -7,13 +7,7 @@ function generateId() { //generates unique IDs for each todo item
   return Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
 }
 
-let todos = [ //current state of list
-  { id: generateId(), text: 'Incomplete item 1', done: false },
-  { id: generateId(), text: 'Incomplete item 2', done: false },
-  { id: generateId(), text: 'Incomplete item 3', done: false },
-  { id: generateId(), text: 'Completed item 1', done: true },
-  { id: generateId(), text: 'Completed item 2', done: true }
-];
+let todos = [];
 
 function save() { //setter for list
   localStorage.setItem(STORAGE_KEY, JSON.stringify(todos));
@@ -56,6 +50,7 @@ function render() { //renders the list
       item.done ? 'Mark incomplete' : 'Mark complete',
       CHECK_SVG
     );
+
     toggleBtn.addEventListener('click', () => { //button to toggle item state
       item.done = !item.done;
       save();
@@ -64,6 +59,9 @@ function render() { //renders the list
 
     const deleteBtn = createIconButton('delete', 'Delete task', X_SVG); //button to delete item
     deleteBtn.addEventListener('click', () => {
+      const safeText = (item.text || '').toString().replace(/\s+/g, ' ').trim();
+      const confirmed = window.confirm(`Delete task "${safeText}"? This action cannot be undone.`);
+      if (!confirmed) return;
       todos = todos.filter(t => t.id !== item.id);
       save();
       render();
